@@ -9,14 +9,12 @@
 	 */
 	// The commands
 	$commands = array(
-		'echo $PWD',
-		'whoami',
-		'git reset --hard HEAD',
-		'git pull',
-		'git status',
-		'git submodule sync',
-		'git submodule update',
-		'git submodule status',
+		'cd /home/revenge/app && git pull',
+        'NODE_ENV=local cd /home/revenge/app/frontend && npm install',
+        '/home/revenge/app/frontend/node_modules/@oracle/ojet-cli/ojet.js build web --release',
+        'cp -r /home/revenge/app/frontend/web /home/revenge/app/build',
+        'cp -r /home/revenge/app/api/* /home/revenge/app/build',
+        'cp /home/revenge/app/deploy.php  /home/revenge/app/build/',
 	);
 	// Run the commands for output
 	$output = '';
