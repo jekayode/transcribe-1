@@ -19,7 +19,7 @@ p {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 }
 
@@ -31,4 +31,33 @@ p {
 
 #lbl-filename {
 	margin-right: 16px;
+}
+
+#providers-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-top: 24px;
+}
+
+.provider-container {
+	width: 48%;
+}
+
+.provider-title {
+	font-weight: bold;
+}
+
+.transcription-text {
+	margin-top: 16px;
+	line-height: 23px;
+	text-align: justify;
+}
+
+#amazonContainer {
+	padding-right: 16px;
+}
+
+#googleContainer {
+	padding-left: 16px;
 }
