@@ -5,8 +5,10 @@
 The aim of this project is to build a web application with Oracle JET that allows users to upload an MP3 to be transcribed by Amazon Transcribe and Google Cloud Speech To Text.
 
 > Figma design: https://www.figma.com/file/IZv6d5CgB8f2gnuVTyyoDAqO/Transcribe
- > <br>
+> <br>
 > Oracle JET Getting Started: http://www.oracle.com/webfolder/technetwork/jet/globalGetStarted.html
+> <br>
+> Knockout.js: http://learn.knockoutjs.com/#/?tutorial=intro
 
 There are 3 sub-teams in this project.
 
