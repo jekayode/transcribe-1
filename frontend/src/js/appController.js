@@ -21,14 +21,21 @@ define([
 
 				var reader = new FileReader();
 				reader.readAsDataURL(files[0]);
-				reader.onload = function(result) {
+				reader.onload = function() {
+					self.amazonText(reader.result);
+					var params = new URLSearchParams();
+					params.append('provider', 'google');
+					params.append('audio', reader.result);
+
 					axios
-						.post('https://rightful-blowgun.glitch.me/transcribe/google', {
-							audio: result
-						})
-						.then(function(response) {
+						.post('https://hng.fun/profiles/api.php', params)
+						.then(response => {
 							self.googleText(response.data.transcription);
 							self.transcriptionProgress('Transcription completed');
+						})
+						.catch(error => {
+							console.log(error);
+							self.transcriptionProgress('Transcription failed.');
 						});
 				};
 				reader.onerror = function(error) {
