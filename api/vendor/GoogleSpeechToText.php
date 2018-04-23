@@ -1,14 +1,5 @@
 <?php
-/**
- * Convert FLAC files to Text using the Google Speech API
- *
- * Credit due to Mike (mike@mikepultz.com) for his first version of this.
- *
- * @version 0.1
- * @author Roger Thomas
- * @see
- *
- */
+
 class GoogleSpeechToText
 {
     /**
