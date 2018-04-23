@@ -1,0 +1,63 @@
+p {
+	margin: 0px;
+	padding: 0px;
+}
+
+.container {
+	width: 70%;
+	margin: 0 auto;
+	padding: 24px;
+	font-size: 14px;
+}
+
+#transcription-info {
+	font-weight: bold;
+	color: #27ae60;
+}
+
+#toolbar {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#upload-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#lbl-filename {
+	margin-right: 16px;
+}
+
+#providers-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-top: 24px;
+}
+
+.provider-container {
+	width: 48%;
+}
+
+.provider-title {
+	font-weight: bold;
+}
+
+.transcription-text {
+	margin-top: 16px;
+	line-height: 23px;
+	text-align: justify;
+}
+
+#amazonContainer {
+	padding-right: 16px;
+}
+
+#googleContainer {
+	padding-left: 16px;
+}
