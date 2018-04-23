@@ -21,7 +21,7 @@ define([
 
 				var reader = new FileReader();
 				reader.readAsDataURL(files[0]);
-				reader.onload = function() {
+				reader.onload = function(result) {
 					axios
 						.post('https://rightful-blowgun.glitch.me/transcribe/google', {
 							audio: result
