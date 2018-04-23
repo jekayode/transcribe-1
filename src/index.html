@@ -24,15 +24,24 @@
   <div id="globalBody" class="oj-web-applayout-page">
     <div class="container">
       <div id="toolbar">
-        <p id="transcription-info">Transcription successful</p>
+        <p id="transcription-info" data-bind="text: transcriptionProgress"></p>
         <div id="upload-container">
           <p id="lbl-filename" data-bind="text: filename"></p>
           <oj-file-picker class='oj-filepicker-custom' selectOn='click' on-oj-select='[[selectListener]]'>
             <oj-button slot='trigger'>
-              <span slot='startIcon' class='oj-fwk-icon oj-fwk-icon-arrowbox-n'></span>
-              Upload
+              Upload MP3
             </oj-button>
           </oj-file-picker>
+        </div>
+      </div>
+      <div id="providers-container">
+        <div id="amazonContainer" class="provider-container">
+          <p class="provider-title">Amazon Transcribe</p>
+          <p class="transcription-text" data-bind="text: amazonText"></p>
+        </div>
+        <div id="googleContainer" class="provider-container">
+          <p class="provider-title">Google Cloud Speech To Text</p>
+          <p class="transcription-text" data-bind="text: googleText"></p>
         </div>
       </div>
     </div>
@@ -40,6 +49,7 @@
 
   <script type="text/javascript" src="js/libs/require/require.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </body>
 
