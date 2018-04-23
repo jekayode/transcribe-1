@@ -22,7 +22,6 @@ define([
 				var reader = new FileReader();
 				reader.readAsDataURL(files[0]);
 				reader.onload = function() {
-					self.amazonText(reader.result);
 					var params = new URLSearchParams();
 					params.append('provider', 'google');
 					params.append('audio', reader.result);
