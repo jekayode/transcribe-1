@@ -27,5 +27,6 @@ There are 3 sub-teams in this project.
 
 1.  Ensure you have OJET installed. To do so, run `npm install -g @oracle/ojet-cli`.
 2.  I cloned this repository locally to `C:\Users\Mbah Clinton\Documents\OJET\` so in the commandline I will run `cd C:\Users\Mbah Clinton\Documents\OJET\transcribe`.
-3.  To run the application, run `ojet serve`.
-4.  The application should now be visible at http://localhost:8000/
+3.  Run `npm install`. If there are any errors, retry with the commandline running as an Administrator.
+4.  To run the application, run `ojet serve`.
+5.  The application should now be visible at http://localhost:8000/
