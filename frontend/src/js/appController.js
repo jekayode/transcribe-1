@@ -43,7 +43,7 @@ define([
 						self.transcriptionProgress('Amazon transcription failed.');
 					});
 			} else {
-				alert('Invalid file selected. Please select an MP3');
+				alert('Please select a valid mono WAV/MP3/FLAC file.');
 			}
 		};
 	}
