@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
+
+body{
+	background-color: grey;
+}
+
 p {
 	margin: 0px;
 	padding: 0px;
@@ -6,8 +12,9 @@ p {
 .container {
 	width: 70%;
 	margin: 0 auto;
-	padding: 24px;
+
 	font-size: 14px;
+	background-color: white;
 }
 
 #transcription-info {
@@ -16,7 +23,6 @@ p {
 }
 
 #toolbar {
-	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -46,18 +52,24 @@ p {
 
 .provider-title {
 	font-weight: bold;
+	margin-bottom: 15px;
+	margin-top: 15px;
 }
 
 .transcription-text {
 	margin-top: 16px;
 	line-height: 23px;
-	text-align: justify;
+	
 }
 
 #amazonContainer {
-	padding-right: 16px;
+	padding-left: 16px;
 }
 
 #googleContainer {
-	padding-left: 16px;
+	padding-right: 16px;
+}
+#trans{
+	font-weight: bold;
+	color: white
 }
