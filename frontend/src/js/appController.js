@@ -19,37 +19,33 @@ define([
 
 		self.selectListener = function(event) {
 			var files = event.detail.files;
-			console.log(files[0].type);
-			if (self.supportedFiles.indexOf(files[0].type) >= 0) {
-				self.filename(files[0].name);
-				self.transcriptionProgress('Transcribing file');
-				self.amazonText('');
-				self.googleText('');
+			console.log(files[0]);
+			self.filename(files[0].name);
+			self.transcriptionProgress('Transcribing file');
+			self.amazonText('');
+			self.googleText('');
 
-				let data = new FormData();
-				data.append('audio', files[0]);
+			let data = new FormData();
+			data.append('audio', files[0]);
 
-				axios
-					.post('https://rightful-blowgun.glitch.me/transcribe/google', data)
-					.then(response => {
-						self.googleText(response.data.transcription);
-					})
-					.catch(error => {
-						self.transcriptionProgress('Google transcription failed.');
-					});
+			axios
+				.post('https://rightful-blowgun.glitch.me/transcribe/google', data)
+				.then(response => {
+					self.googleText(response.data.transcription);
+				})
+				.catch(error => {
+					self.transcriptionProgress('Google transcription failed.');
+				});
 
-				axios
-					.post('https://rightful-blowgun.glitch.me/transcribe/amazon', data)
-					.then(response => {
-						self.amazonText(response.data.transcription);
-						self.transcriptionProgress('Amazon transcription completed');
-					})
-					.catch(error => {
-						self.transcriptionProgress('Amazon transcription failed.');
-					});
-			} else {
-				alert('Please select a valid mono WAV/MP3/FLAC file.');
-			}
+			axios
+				.post('https://rightful-blowgun.glitch.me/transcribe/amazon', data)
+				.then(response => {
+					self.amazonText(response.data.transcription);
+					self.transcriptionProgress('Amazon transcription completed');
+				})
+				.catch(error => {
+					self.transcriptionProgress('Amazon transcription failed.');
+				});
 		};
 	}
 
