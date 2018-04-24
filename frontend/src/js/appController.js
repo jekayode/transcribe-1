@@ -41,7 +41,7 @@ define([
 
 			if (files[0].name.match(/\.wav$|\.flac$|\.mp3/g)) {
 				self.filename(files[0].name);
-				self.amazonTranscriptionProgress('Transcribing file..');
+				self.amazonTranscriptionProgress('Starting transcription job');
 				self.googleTranscriptionProgress('Transcribing file..');
 				self.amazonText('');
 				self.googleText('');

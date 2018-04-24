@@ -41,7 +41,7 @@
         <div id="amazonContainer" class="provider-container">
           <div style="display: flex; flex-direction: row; align-items: center; background: #2c666e; padding: 16px;">
             <p class="provider-title">Amazon Transcribe</p>
-            <oj-button style="margin-left: 16px;" on-oj-action='[[checkAmazonStatus]]'>Check transcription status</oj-button>
+            <oj-button style="margin-left: 16px;" on-oj-action='[[checkAmazonStatus]]'>Check transcription job status</oj-button>
             <p class="transcription-info" data-bind="text: amazonTranscriptionProgress"></p>
           </div>
           <div style="padding: 16px">
@@ -58,6 +58,9 @@
           </div>
         </div>
       </div>
+      <footer style="display: flex; flex-direction: row; justify-content: center; margin-top: 30px; font-size: 12px;">
+        <p>Created by TEAM DRAGON REVENGE.</p>
+      </footer>
     </div>
   </div>
 
