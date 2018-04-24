@@ -9,6 +9,7 @@ define([
 		self.filename = ko.observable('No file selected');
 		self.googleText = ko.observable('');
 		self.amazonText = ko.observable('');
+        self.transcriptionProgress = ko.observable('');
 		self.googleTranscriptionProgress = ko.observable('');
 		self.amazonTranscriptionProgress = ko.observable('');
 		self.supportedFiles = [
