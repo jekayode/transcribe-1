@@ -30,8 +30,11 @@ define([
 
 			if (response.data.status === 'completed') {
 				self.amazonText(response.data.transcription);
+				self.amazonTranscriptionProgress('Amazon transcription completed.');
 			} else {
-				alert('Please wait. Transcription job not yet completed.');
+				self.amazonTranscriptionProgress(
+					'Please wait. Transcription job not yet completed.'
+				);
 			}
 		};
 
@@ -54,6 +57,7 @@ define([
 					self.googleTranscriptionProgress('Google transcription completed.');
 				})
 				.catch(error => {
+					console.log(error);
 					self.googleTranscriptionProgress('Google transcription failed.');
 				});
 
@@ -64,6 +68,7 @@ define([
 					self.amazonTranscriptionProgress('Amazon transcription job started.');
 				})
 				.catch(error => {
+					console.log(error);
 					self.amazonTranscriptionProgress('Amazon transcription failed.');
 				});
 		};
