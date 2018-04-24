@@ -6,10 +6,11 @@ define([
 ], function(oj, ko) {
 	function ControllerViewModel() {
 		var self = this;
+		self.amazonJobName = '';
 		self.filename = ko.observable('No file selected');
 		self.googleText = ko.observable('');
 		self.amazonText = ko.observable('');
-        self.transcriptionProgress = ko.observable('');
+		self.transcriptionProgress = ko.observable('');
 		self.googleTranscriptionProgress = ko.observable('');
 		self.amazonTranscriptionProgress = ko.observable('');
 		self.supportedFiles = [
@@ -19,11 +20,27 @@ define([
 			'audio/flac'
 		];
 
+		self.checkAmazonStatus = async function() {
+			console.log(self.amazonJobName);
+			let response = await axios.get(
+				`https://rightful-blowgun.glitch.me/transcribe/amazon/status/${
+					self.amazonJobName
+				}`
+			);
+
+			if (response.data.status === 'completed') {
+				self.amazonText(response.data.transcription);
+			} else {
+				alert('Please wait. Transcription job not yet completed.');
+			}
+		};
+
 		self.selectListener = function(event) {
 			var files = event.detail.files;
 
 			self.filename(files[0].name);
-			self.transcriptionProgress('Transcribing file');
+			self.amazonTranscriptionProgress('Transcribing file');
+			self.googleTranscriptionProgress('');
 			self.amazonText('');
 			self.googleText('');
 
@@ -43,8 +60,8 @@ define([
 			axios
 				.post('https://rightful-blowgun.glitch.me/transcribe/amazon', data)
 				.then(response => {
-					self.amazonText(response.data.transcription);
-					self.amazonTranscriptionProgress('Amazon transcription completed.');
+					self.amazonJobName = response.data.transcriptionJobName;
+					self.amazonTranscriptionProgress('Amazon transcription job started.');
 				})
 				.catch(error => {
 					self.amazonTranscriptionProgress('Amazon transcription failed.');
