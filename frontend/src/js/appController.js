@@ -30,9 +30,9 @@ define([
 
 			if (response.data.status === 'completed') {
 				self.amazonText(response.data.transcription);
-				self.amazonTranscriptionProgress('Amazon transcription completed.');
+				self.amazonTranscriptionProgress('Transcription completed.');
 			} else {
-				alert('Please wait. Transcription job not yet completed.');
+				self.amazonTranscriptionProgress('Transcription job in progress.');
 			}
 		};
 
@@ -41,13 +41,13 @@ define([
 
 			if (files[0].name.match(/\.wav$|\.flac$|\.mp3/g)) {
 				self.filename(files[0].name);
-				self.amazonTranscriptionProgress('Transcribing file');
-				self.googleTranscriptionProgress('');
+				self.amazonTranscriptionProgress('Transcribing file..');
+				self.googleTranscriptionProgress('Transcribing file..');
 				self.amazonText('');
 				self.googleText('');
 
 				let extension = files[0].name.substring(
-					files[0].name.lastIndexOf('.'),
+					files[0].name.lastIndexOf('.') + 1,
 					files[0].name.length
 				);
 				console.log(extension);
@@ -62,11 +62,11 @@ define([
 					)
 					.then(response => {
 						self.googleText(response.data.transcription);
-						self.googleTranscriptionProgress('Google transcription completed.');
+						self.googleTranscriptionProgress('Transcription completed.');
 					})
 					.catch(error => {
 						console.log(error);
-						self.googleTranscriptionProgress('Google transcription failed.');
+						self.googleTranscriptionProgress('Transcription failed.');
 					});
 
 				axios
@@ -76,13 +76,11 @@ define([
 					)
 					.then(response => {
 						self.amazonJobName = response.data.transcriptionJobName;
-						self.amazonTranscriptionProgress(
-							'Amazon transcription job started.'
-						);
+						self.amazonTranscriptionProgress('Transcription job started.');
 					})
 					.catch(error => {
 						console.log(error);
-						self.amazonTranscriptionProgress('Amazon transcription failed.');
+						self.amazonTranscriptionProgress('Transcription failed.');
 					});
 			} else {
 				alert('Please select a valid MP3/WAV/FLAC file.');

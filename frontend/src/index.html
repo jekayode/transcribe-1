@@ -23,9 +23,11 @@
 <body class="oj-web-applayout-body">
   <div id="globalBody" class="oj-web-applayout-page">
     <div class="container">
+      <div style=" padding: 16px;">
+        <h4>Transcribe</h4>
+      </div>
       <div id="toolbar">
-        <p class="transcription-info" data-bind="text: amazonTranscriptionProgress"></p>
-        <p class="transcription-info" data-bind="text: googleTranscriptionProgress"></p>
+        <p></p>
         <div id="upload-container">
           <p id="lbl-filename" data-bind="text: filename"></p>
           <oj-file-picker class='oj-filepicker-custom' selectOn='click' on-oj-select='[[selectListener]]'>
@@ -37,13 +39,23 @@
       </div>
       <div id="providers-container">
         <div id="amazonContainer" class="provider-container">
-          <p class="provider-title">Amazon Transcribe</p>
-          <oj-button on-oj-action='[[checkAmazonStatus]]'>Check transcription status</oj-button>
-          <p class="transcription-text" data-bind="text: amazonText"></p>
+          <div style="display: flex; flex-direction: row; align-items: center; background: #2c666e; padding: 16px;">
+            <p class="provider-title">Amazon Transcribe</p>
+            <oj-button style="margin-left: 16px;" on-oj-action='[[checkAmazonStatus]]'>Check transcription status</oj-button>
+            <p class="transcription-info" data-bind="text: amazonTranscriptionProgress"></p>
+          </div>
+          <div style="padding: 16px">
+            <p class="transcription-text" data-bind="text: amazonText"></p>
+          </div>
         </div>
         <div id="googleContainer" class="provider-container">
-          <p class="provider-title">Google Cloud Speech To Text</p>
-          <p class="transcription-text" data-bind="text: googleText"></p>
+          <div style="display: flex; flex-direction: row; align-items: center; background: #2c666e; padding: 16px; height: 38px;">
+            <p class="provider-title">Google Cloud Speech To Text</p>
+            <p class="transcription-info" data-bind="text: googleTranscriptionProgress"></p>
+          </div>
+          <div style="padding: 16px">
+            <p class="transcription-text" data-bind="text: googleText"></p>
+          </div>
         </div>
       </div>
     </div>
