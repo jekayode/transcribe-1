@@ -10,7 +10,7 @@ p {
 	font-size: 14px;
 }
 
-#transcription-info {
+.transcription-info {
 	font-weight: bold;
 	color: #27ae60;
 }

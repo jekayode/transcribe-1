@@ -24,7 +24,8 @@
   <div id="globalBody" class="oj-web-applayout-page">
     <div class="container">
       <div id="toolbar">
-        <p id="transcription-info" data-bind="text: transcriptionProgress"></p>
+        <p class="transcription-info" data-bind="text: amazonTranscriptionProgress"></p>
+        <p class="transcription-info" data-bind="text: googleTranscriptionProgress"></p>
         <div id="upload-container">
           <p id="lbl-filename" data-bind="text: filename"></p>
           <oj-file-picker class='oj-filepicker-custom' selectOn='click' on-oj-select='[[selectListener]]'>

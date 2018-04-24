@@ -9,7 +9,8 @@ define([
 		self.filename = ko.observable('No file selected');
 		self.googleText = ko.observable('');
 		self.amazonText = ko.observable('');
-		self.transcriptionProgress = ko.observable('');
+		self.googleTranscriptionProgress = ko.observable('');
+		self.amazonTranscriptionProgress = ko.observable('');
 		self.supportedFiles = [
 			'audio/wav',
 			'audio/mpeg',
@@ -19,7 +20,7 @@ define([
 
 		self.selectListener = function(event) {
 			var files = event.detail.files;
-			console.log(files[0]);
+
 			self.filename(files[0].name);
 			self.transcriptionProgress('Transcribing file');
 			self.amazonText('');
@@ -32,19 +33,20 @@ define([
 				.post('https://rightful-blowgun.glitch.me/transcribe/google', data)
 				.then(response => {
 					self.googleText(response.data.transcription);
+					self.googleTranscriptionProgress('Google transcription completed.');
 				})
 				.catch(error => {
-					self.transcriptionProgress('Google transcription failed.');
+					self.googleTranscriptionProgress('Google transcription failed.');
 				});
 
 			axios
 				.post('https://rightful-blowgun.glitch.me/transcribe/amazon', data)
 				.then(response => {
 					self.amazonText(response.data.transcription);
-					self.transcriptionProgress('Amazon transcription completed');
+					self.amazonTranscriptionProgress('Amazon transcription completed.');
 				})
 				.catch(error => {
-					self.transcriptionProgress('Amazon transcription failed.');
+					self.amazonTranscriptionProgress('Amazon transcription failed.');
 				});
 		};
 	}
