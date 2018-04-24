@@ -5,7 +5,7 @@ export PATH=$HOME/yarn/bin:$PATH
 
 cd /home/revenge/app
 # Clean out extraneous files
-git clean -f 
+git clean -f
 # Pull recent changes
 git pull
 
