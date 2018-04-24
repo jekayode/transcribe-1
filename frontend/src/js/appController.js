@@ -10,10 +10,16 @@ define([
 		self.googleText = ko.observable('');
 		self.amazonText = ko.observable('');
 		self.transcriptionProgress = ko.observable('');
-		self.supportedFiles = ['audio/wav', 'audio/mpeg', 'audio/x-flac'];
+		self.supportedFiles = [
+			'audio/wav',
+			'audio/mpeg',
+			'audio/x-flac',
+			'audio/flac'
+		];
 
 		self.selectListener = function(event) {
 			var files = event.detail.files;
+			console.log(files[0].type);
 			if (self.supportedFiles.indexOf(files[0].type) >= 0) {
 				self.filename(files[0].name);
 				self.transcriptionProgress('Transcribing file');
@@ -27,7 +33,6 @@ define([
 					.post('https://rightful-blowgun.glitch.me/transcribe/google', data)
 					.then(response => {
 						self.googleText(response.data.transcription);
-						self.transcriptionProgress('Google transcription completed');
 					})
 					.catch(error => {
 						self.transcriptionProgress('Google transcription failed.');
