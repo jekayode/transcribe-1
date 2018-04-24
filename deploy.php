@@ -11,7 +11,7 @@
 	$commands = array(
 		'cd /home/revenge/app && git clean -f && git pull',
         'NODE_ENV=local cd /home/revenge/app/frontend && npm install',
-        '/home/revenge/app/frontend/node_modules/@oracle/ojet-cli/ojet.js build web --release',
+        'cd /home/revenge/app/frontend && ./node_modules/@oracle/ojet-cli/ojet.js build web --release',
         'cp -r /home/revenge/app/frontend/web /home/revenge/app/build',
         'cp -r /home/revenge/app/api/* /home/revenge/app/build',
         'cp /home/revenge/app/deploy.php  /home/revenge/app/build/',
