@@ -66,10 +66,52 @@ body {
 	text-align: justify;
 }
 
+.provider-header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+	background: #2c666e;
+	padding: 16px;
+}
+
+#amazonStatusBtn {
+	margin-left: 16px;
+}
+
 #amazonContainer {
 	border-radius: 10px;
 }
 
 #googleContainer {
 	border-radius: 10px;
+}
+
+@media (max-width: 767px) {
+	.provider-container {
+		width: 95%;
+		margin: 0 auto;
+	}
+
+	#providers-container {
+		margin-top: 0px;
+	}
+
+	.container {
+		width: 100%;
+		padding: 0px;
+	}
+
+	#filler {
+		display: none;
+	}
+
+	#amazonStatusBtn {
+		margin-left: 0px;
+		margin-top: 8px;
+	}
+
+	#googleContainer {
+		margin-top: 16px;
+	}
 }

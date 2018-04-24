@@ -27,7 +27,7 @@
         <h4>Transcribe</h4>
       </div>
       <div id="toolbar">
-        <p></p>
+        <p id="filler"></p>
         <div id="upload-container">
           <p id="lbl-filename" data-bind="text: filename"></p>
           <oj-file-picker class='oj-filepicker-custom' selectOn='click' on-oj-select='[[selectListener]]'>
@@ -39,9 +39,9 @@
       </div>
       <div id="providers-container">
         <div id="amazonContainer" class="provider-container">
-          <div style="display: flex; flex-direction: row; align-items: center; background: #2c666e; padding: 16px;">
+          <div class="provider-header">
             <p class="provider-title">Amazon Transcribe</p>
-            <oj-button style="margin-left: 16px;" on-oj-action='[[checkAmazonStatus]]'>Check transcription job status</oj-button>
+            <oj-button id="amazonStatusBtn" on-oj-action='[[checkAmazonStatus]]'>Check transcription job status</oj-button>
             <p class="transcription-info" data-bind="text: amazonTranscriptionProgress"></p>
           </div>
           <div style="padding: 16px">
@@ -49,7 +49,7 @@
           </div>
         </div>
         <div id="googleContainer" class="provider-container">
-          <div style="display: flex; flex-direction: row; align-items: center; background: #2c666e; padding: 16px; height: 38px;">
+          <div class="provider-header">
             <p class="provider-title">Google Cloud Speech To Text</p>
             <p class="transcription-info" data-bind="text: googleTranscriptionProgress"></p>
           </div>
