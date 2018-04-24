@@ -9,13 +9,7 @@
 	 */
 	// The commands
 	$commands = array(
-		'cd /home/revenge/app && git clean -f && git pull',
-        'NODE_ENV=local cd /home/revenge/app/frontend && npm install',
-        'cd /home/revenge/app/frontend && ./node_modules/@oracle/ojet-cli/ojet.js build web --release',
-        'cp -r /home/revenge/app/frontend/web /home/revenge/app/build',
-        'cp -r /home/revenge/app/api/* /home/revenge/app/build',
-        'cp /home/revenge/app/deploy.php  /home/revenge/app/build/',
-        'rsync -avz --delete /home/revenge/app/build/ /var/www/dragonrevenge/',
+        'bash /home/revenge/app/deploy.sh',
 	);
 	// Run the commands for output
 	$output = '';
